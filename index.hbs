@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="{{@site.lang}}">
 {{!< default}}
 {{!-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template --}}
@@ -7,7 +9,7 @@ into the {body} of the default.hbs template --}}
         <div class="site-header-content">
             <h1 class="site-title">
                 {{#if @site.logo}}
-                    <img class="site-logo" src="{{img_url @site.logo size="l"}}" alt="{{@site.title}}" />
+                    <img class="site-logo" src="{{img_url @site.logo size='l'}}" alt="{{@site.title}}" />
                 {{else}}
                     {{@site.title}}
                 {{/if}}
@@ -33,3 +35,4 @@ into the {body} of the default.hbs template --}}
 
     </div>
 </main>
+</html>

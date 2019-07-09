@@ -3,21 +3,25 @@
     overflow: hidden;
     border-bottom: 1px solid #eee;
 }
+
 .archives h3 {
 	font-size: 15px;
     font-weight: bold;
     margin: 4px 0 0 -120px;
     float: left;
 }
+
 .archives-list {
     list-style: none;
     font-size: 14px;
     line-height: 20px;
 }
+
 .archives-list li {
     padding: 3px 0;
     overflow: hidden;
 }
+
 .archives-list time {
     margin-right: 5px;
     color: #999;
@@ -25,7 +29,29 @@
     width: 35px;
     font-family: monospace;
 }
+
 .archives-posts-total {
 	font-family: monospace;
 	color:white;
+}
+
+.disqus_contain {
+    position: relative;
+    width: 80%;
+    margin: 0px auto;
+}
+
+.content_contain {
+    width: 100%;  
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.content_nav {
+    top: 0;
+    width: 100px; 
+    right: 0; 
+    bottom: 0;
+    position: absolute;
 }
