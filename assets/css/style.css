@@ -41,6 +41,16 @@
     margin: 0px auto;
 }
 
+.postcard_tags {
+    flex-shrink: 0;
+    margin-left: 20px;
+    color: var(--midgrey);
+    font-size: 1.5rem;
+    line-height: 33px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+/*test code*/
 .content_contain {
     width: 100%;  
     position: relative;
@@ -55,3 +65,4 @@
     bottom: 0;
     position: absolute;
 }
+/**/

@@ -33,7 +33,6 @@
         </a>
 
         <footer class="post-card-meta">
-
             <ul class="author-list">
             {{#foreach authors}}
                 <li class="author-list-item">
@@ -52,11 +51,11 @@
                 </li>
             {{/foreach}}
             </ul>
-            {{#if primary_tag}}
-                <span class="post-card-tags">{{primary_tag.name}}</span>
+            {{#if tags}}
+                {{#foreach tags limit="3"}}
+                    <a href="{{url}}" class="postcard_tags" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a>
+                {{/foreach}}
             {{/if}}
-            <!--<span class="reading-time">{{reading_time}}</span>-->
-
         </footer>
 
     </div>{{!--/.post-card-content--}}
