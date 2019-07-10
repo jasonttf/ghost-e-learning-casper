@@ -26,17 +26,23 @@ into the {body} of the default.hbs template --}}
                 }
             }
             else if (el.is("h2")) {
-                ToC += "<li style='margin-left:2em'><a href='" + link + "'>" + title + "</a></li>";
-                exit = true;
+                if (title != "Tags") {
+                    ToC += "<li style='margin-left:2em'><a href='" + link + "'>" + title + "</a></li>";
+                    exit = true;
+                }
             } 
             else if (el.is("h3")) {
                 ToC += "<li style='margin-left:4em'><a href='" + link + "'>" + title + "</a></li>";
                 exit = true;
             }
         });
+        if ($("h3").length <= 0) {
+            document.getElementById("side_bar").classList.add("less_than_3");
+        }
         ToC += "</ul></nav>";
         if (exit) {
             document.getElementById("toc").innerHTML += ToC;
+            document.getElementById("toc").classList.add("side_element");
         }
     }
 </script>
@@ -82,12 +88,23 @@ into the {body} of the default.hbs template --}}
                 />
             </figure>
             {{/if}}
-                <div id="toc" class="content_nav"></div>
-                <section class="post-full-content">
-                    <div class="post-content">
-                        {{content}}
+            <section class="post-full-content parent">
+                <div class="child" id="side_bar">
+                    <div id="toc"></div>
+                    <br>
+                    <div class="side_element">
+                        {{#if tags}}
+                            <h2>Tags</h2>
+                            {{#foreach tags}}
+                                <a href="{{url}}" class="all_tags" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a>
+                            {{/foreach}}
+                        {{/if}}
                     </div>
-                </section>
+                </div>
+                <div class="post-content">
+                    {{content}}
+                </div>
+            </section>
             <script type="text/javascript">content_nav();</script>
 
             {{!-- Email subscribe form at the bottom of the page --}}
@@ -134,10 +151,10 @@ into the {body} of the default.hbs template --}}
                 {{#if related_posts}}
                 <article class="read-next-card"
                     {{#if ../primary_tag.feature_image}}
-                        style="background-image: url({{img_url ../primary_tag.feature_image size="m"}})"
+                        style="background-image: url({{img_url ../primary_tag.feature_image size='m'}})"
                     {{else}}
                         {{#if @site.cover_image}}
-                            style="background-image: url({{img_url @site.cover_image size="m"}})"{{/if}}
+                            style="background-image: url({{img_url @site.cover_image size='m'}})"{{/if}}
                     {{/if}}
                 >
                     <header class="read-next-card-header">
