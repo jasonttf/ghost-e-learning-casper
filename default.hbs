@@ -39,15 +39,7 @@
         {{{body}}}
 
         {{!-- The footer at the very bottom of the screen --}}
-        <footer class="site-footer outer">
-            <div class="site-footer-content inner">
-                <section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
-                <nav class="site-footer-nav">
-                    <a href="{{@site.url}}">Latest Posts</a>
-                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
-                </nav>
-            </div>
-        </footer>
+        {{> footer}}
 
     </div>
 
@@ -103,6 +95,10 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-js.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-python.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-java.js"></script>
+    <div id="back2Top" class="right-bar"><a href=" ">
+        <i class="fa fa-angle-double-up" style="color: #5599FF; font-size: 50px;"></i></a>
+    </div>
+    <script src="{{asset 'js/gototop.js'}}"></script>
     {{ghost_foot}}
 
 </body>

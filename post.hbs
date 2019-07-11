@@ -122,15 +122,6 @@ into the {body} of the default.hbs template --}}
                 <script type="text/javascript">content_nav();</script>
             </section>
 
-            {{!-- Email subscribe form at the bottom of the page --}}
-            {{#if @labs.subscribers}}
-            <section class="subscribe-form">
-                <h3 class="subscribe-form-title">Subscribe to {{@site.title}}</h3>
-                <p>Get the latest posts delivered right to your inbox</p>
-                {{subscribe_form placeholder="youremail@example.com"}}
-            </section>
-            {{/if}}
-
             <footer class="post-full-footer">
 
                 {{!-- There are two options for how we display the byline/author-info.
@@ -161,6 +152,12 @@ into the {body} of the default.hbs template --}}
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed">
+
+            {{!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs --}}
+            {{#next_post}}
+                {{> "post-card"}}
+            {{/next_post}}
+
             {{#if primary_tag}}
             {{#get "posts" filter="tags:{{primary_tag.slug}}+id:-{{id}}" limit="3" as |related_posts|}}
                 {{#if related_posts}}
@@ -193,11 +190,6 @@ into the {body} of the default.hbs template --}}
                 {{/if}}
             {{/get}}
             {{/if}}
-
-            {{!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs --}}
-            {{#next_post}}
-                {{> "post-card"}}
-            {{/next_post}}
 
             {{!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs --}}
             {{#prev_post}}

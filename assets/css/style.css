@@ -94,3 +94,132 @@
     padding: 1.5vw;
     border-radius: 1vw;
 }
+
+.footer_holder {
+    max-width: 90%;
+}
+
+.footer {
+    background: #F8F8F8;
+    margin: 0 auto;
+}
+
+.footer_nav, .footer_subscribe_form {
+    margin: 0px auto;
+}
+
+.footer_nav ul {
+     margin-bottom: .5vw;
+}
+
+.footer_nav_title, .footer_subscribe_form_title{
+    color: black;
+    font-size: 3.5rem;
+    line-height: 1;
+    margin-top: .5vw;
+}
+
+.footer_nav_item {
+    list-style: none;
+    font-size: 2rem;
+    margin-left: 0;
+}
+
+.footer_nav_item_text {
+    color: var(--darkgrey);
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    margin-bottom: 6vw;
+}
+
+.vl {
+    border-left: .15vw solid #DDDDDD;
+    height: auto
+}
+
+.right-bar {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    display: none;
+    bottom: 100px;
+    right: 30px;
+    text-align: center;
+    z-index:100;
+}
+
+.right-bar:a {
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    width: 64px;
+}
+
+.right-bar:hover {
+    background: #CCEEFF;
+    border-radius: 5vw;
+}
+
+#contact_form input[type = "text"]{
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 16px;
+    border: 2px solid #217EBC;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    border-radius: 24px;
+    transition: 0.1s; 
+}
+
+#contact_form input[type = "text"]:focus {
+    width: 280px;
+    border-color: #25A85D;
+}
+
+.message_area {
+    border: 2px solid #217EBC;
+    padding: 14px 10px;
+    background: none;
+    display: block;
+    outline: none;
+    border-radius: 24px;
+    margin: 0 auto;
+    resize: none;
+}
+
+.message_area:focus {
+    border-color: #25A85D;
+}
+
+.form_submit_button {
+    background: none;
+    display: block;
+    font-size: 20px;
+    border: 2px solid #25A85D;
+    padding: .3vw .8vw;
+    outline: none;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+    margin: 1vw auto;
+}
+
+.form_submit_button:hover {
+    background: #25A85D;
+    color: white;
+}

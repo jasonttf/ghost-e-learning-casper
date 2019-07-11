@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="{{@site.lang}}">
+<div class="footer_nav">
+	<h3 class="footer_nav_title">Navigation</h3>
+	<ul>
+	    {{#foreach @blog.navigation}}
+	    	<li class="footer_nav_item"><a class="footer_nav_item_text" href="{{url absulote='true'}}">{{label}}</a></li>
+	    {{/foreach}}
+	</ul>
+</div>
+</html>
