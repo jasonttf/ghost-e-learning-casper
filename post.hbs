@@ -6,12 +6,13 @@
 into the {body} of the default.hbs template --}}
 
 <script type="text/javascript">
+    var tagsExist = true;
     function content_nav() {
         var contentsTitle = "Content Nav";
-        var ToC = "<h2>"+contentsTitle+"</h2>";
+        var ToC = "<h3>"+contentsTitle+"</h3>";
         ToC += "<nav role='navigation'><ul>";
         var first = true;
-        var exit = false;
+        var navExist = false;
         $("h1, h2, h3").each(function() {
             var el = $(this);
             var title = el.text();
@@ -21,29 +22,39 @@ into the {body} of the default.hbs template --}}
                     first = false;
                 }
                 else {
-                    ToC += "<li><a href='" + link + "'>" + title + "</a></li>";
-                    exit = true;
+                    ToC += "<li><a style='text-decoration: none;' href='" + link + "'>" + title + "</a></li>";
+                    navExist = true;
                 }
             }
             else if (el.is("h2")) {
-                if (title != "Tags") {
-                    ToC += "<li style='margin-left:2em'><a href='" + link + "'>" + title + "</a></li>";
-                    exit = true;
-                }
+                ToC += "<li style='margin-left:2em; text-decoration: none;'><a href='" + link + "'>" + title + "</a></li>";
+                navExist = true;
             } 
             else if (el.is("h3")) {
-                ToC += "<li style='margin-left:4em'><a href='" + link + "'>" + title + "</a></li>";
-                exit = true;
+                if (title != "Tags") {
+                    ToC += "<li style='margin-left:4em; text-decoration: none;'><a href='" + link + "'>" + title + "</a></li>";
+                    navExist = true;
+                }
             }
         });
         if ($("h3").length <= 0) {
             document.getElementById("side_bar").classList.add("less_than_3");
         }
         ToC += "</ul></nav>";
-        if (exit) {
+        if (navExist) {
             document.getElementById("toc").innerHTML += ToC;
             document.getElementById("toc").classList.add("side_element");
         }
+        if (!navExist && !tagsExist) {
+            document.getElementById("content_sec").classList.remove("parent");
+        }
+        if (tagsExist && !navExist) {
+            document.getElementById("side_bar").classList.add("only_tags");
+        }
+    }
+
+    function setTagsNotExist() {
+        tagsExist = false;
     }
 </script>
 
@@ -88,24 +99,28 @@ into the {body} of the default.hbs template --}}
                 />
             </figure>
             {{/if}}
-            <section class="post-full-content parent">
+            
+            <section class="post-full-content parent" id="content_sec">
                 <div class="child" id="side_bar">
                     <div id="toc"></div>
                     <br>
-                    <div class="side_element">
-                        {{#if tags}}
-                            <h2>Tags</h2>
+                    {{#if tags}}
+                        <div class="side_element" id="post_tags">
+                            <h3>Tags</h3>
                             {{#foreach tags}}
-                                <a href="{{url}}" class="all_tags" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a>
+                                 <a href="{{url}}" class="all_tags" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a>
                             {{/foreach}}
-                        {{/if}}
-                    </div>
+                        </div>
+                    {{else}}
+                        <script type="text/javascript">setTagsNotExist();</script>
+                    {{/if}}
+
                 </div>
                 <div class="post-content">
                     {{content}}
                 </div>
+                <script type="text/javascript">content_nav();</script>
             </section>
-            <script type="text/javascript">content_nav();</script>
 
             {{!-- Email subscribe form at the bottom of the page --}}
             {{#if @labs.subscribers}}
