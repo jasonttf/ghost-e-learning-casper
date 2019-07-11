@@ -1,22 +1,28 @@
+<!DOCTYPE html>
+<html lang="{{@site.lang}}">
 {{!< default}}
-{{> header background=@site.cover_image}} {{!--Special header.hbs partial to generate the <header> tag--}}
+
+<header class="site-header outer">
     <div class="inner">
-        <div class="site-header-content">
-            <h1 class="site-title">
-                {{#if @site.logo}}
-                    <img class="site-logo" src="{{img_url @site.logo size="l"}}" alt="{{@site.title}}" />
-                {{else}}
-                    {{@site.title}}
-                {{/if}}
-            </h1>
-            <h2 class="site-description">{{@site.description}}</h2>
-        </div>
+        {{> "site-nav"}}
     </div>
 </header>
-<div id='archivesBox' class='archives-box outer'>
+
+<div class="site-main outer">
+	<main id="site-main" class="site-main outer">
+		<div class="inner">
+			<article class="post-full post page no-image">
+				<header class="post-full-header">
+					<h1 class="post-full-title">Archive</h1>
+				</header>
+				<section class="post-full-content">
+					<div id='archivesBox' class='archives-box outer'></div>
+				</section>
+			</article>
+		</div>
+	</article>
 </div>
 
-<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/moment.js/2.14.1/moment.min.js"></script>
 <script type = "text/javascript"> 
 	jQuery(document).ready(function() {
@@ -57,7 +63,7 @@
 				}else{
 					
 					//var html = "<div class='item'><h3><i class='fa fa-calendar fa-fw' aria-hidden='true'></i> "+year+"-"+month+"</h3><ul class='archives-list list-"+year+"-"+month+"'><li><time>"+date+" </time><a href='"+url+"'>"+title+"</a><div class='archives-excerpt'>"+excerpt+"<div></li></ul></div>";
-					var html = "<div class='item'><h3><i class='fa fa-calendar fa-fw' aria-hidden='true'></i> "+year+"-"+month+"</h3><ul class='archives-list list-"+year+"-"+month+"'><li><time>"+date+" </time><a href='"+url+"'>"+title+"</a></li></ul></div>";
+					var html = "<div class='item'><h3><i class='fa fa-calendar fa-fw' aria-hidden='true'></i> "+year+"-"+month+"</h3><ul class='archives-list list-"+year+"-"+month+"'><li><time>"+date+" </time><a class='archive-list-item' href='"+url+"'>"+title+"</a></li></ul></div>";
 					$(html).appendTo('.archives');
 				}
 			}
@@ -66,3 +72,4 @@
 		});
 }); 
 </script>
+</html>

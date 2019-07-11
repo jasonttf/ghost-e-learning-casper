@@ -5,15 +5,14 @@
 }
 
 .archives h3 {
-	font-size: 15px;
+	font-size: 18px;
     font-weight: bold;
-    margin: 4px 0 0 -120px;
-    float: left;
+    margin-left: -120px;
 }
 
 .archives-list {
     list-style: none;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
 }
 
