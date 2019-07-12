@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="{{@site.lang}}">
+<script type="text/javascript">
+	function setFooterNav() {
+		var count=0;
+		$(".nav_list").each(function() {
+			if (count>=4) {
+				var navElement=$(this);
+				console.log(navElement);
+				var navElementClassList=navElement.attr("class").split(" ");
+				console.log(navElementClassList);
+				for(var i=0; i<navElementClassList.length; i++) {
+					console.log(navElementClassList[i]);
+					if(navElementClassList[i]!="nav-current") {
+						navElement.removeClass(navElementClassList[i]);
+					}
+				}
+				navElement.addClass("footer_nav_item");
+				console.log(navElement);
+			}
+			count++;
+		});
+	}
+</script>
 <div class="footer_nav">
 	<h3 class="footer_nav_title">Navigation</h3>
-	<ul>
-	    {{#foreach @blog.navigation}}
-	    	<li class="footer_nav_item"><a class="footer_nav_item_text" href="{{url absulote='true'}}">{{label}}</a></li>
-	    {{/foreach}}
-	</ul>
+	{{navigation}}
+	<script type="text/javascript">setFooterNav();</script>
 </div>
 </html>

@@ -4,19 +4,21 @@
 
     {{!-- Document Settings --}}
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
     {{!-- Base Meta --}}
     <title>{{meta_title}}</title>
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     {{!-- Styles'n'Scripts --}}
-    <link rel="stylesheet" type="text/css" href="{{asset 'built/screen.css'}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset 'css/style.css'}}" />
-    <link rel="stylesheet" href="{{asset 'font-awesome/css/font-awesome.min.css'}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset 'built/screen.css'}}"/>
+    <link rel="stylesheet" type="text/css" href="{{asset 'css/style.css'}}"/>
+    <link rel="stylesheet" href="{{asset 'font-awesome/css/font-awesome.min.css'}}"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{asset 'ghostHunter/dist/jquery.ghosthunter.js'}}"></script>
     <script type="text/x-mathjax-config">
        MathJax.Hub.Config({
          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],
@@ -25,6 +27,7 @@
     </script>
     <script type="text/javascript">
         var _ApiKey = '2b771b3ff6206ee57d7bfc8738';
+        var ghosthunter_key='5927beca44f0c1d4fc3f076a2f';
     </script>
     <link href="//cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css" rel="stylesheet" />
 
@@ -34,7 +37,7 @@
 <body class="{{body_class}}">
 
     <div class="site-wrapper">
-
+        <section id="results"></section>
         {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
         {{{body}}}
 
@@ -49,7 +52,7 @@
         <a class="subscribe-overlay-close" href="#"></a>
         <div class="subscribe-overlay-content">
             {{#if @site.logo}}
-                <img class="subscribe-overlay-logo" src="{{@site.logo}}" alt="{{@site.title}}" />
+                <img class="subscribe-overlay-logo" src="{{@site.logo}}" alt="{{@site.title}}"/>
             {{/if}}
             <h1 class="subscribe-overlay-title">Subscribe to {{@site.title}}</h1>
             <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
