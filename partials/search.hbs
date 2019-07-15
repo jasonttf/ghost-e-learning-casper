@@ -4,15 +4,15 @@
 	function showSearchForm() {
 		$("#search_form").show();
 		$("#show_search_button").hide();
+		$("#search-field").focus();
 	}
 </script>
 <div class="search_holder">
 	<button class="material-icons search-icon search-start show_search_button" id="show_search_button" onclick="showSearchForm()">search</button>
 	<form class="search_form" id="search_form">
 		<input id="search-field" placeholder="Search here" class="search_field"/>
-		<button class="material-icons search-icon search-start search_button" id="search_button">search</button>
 	</form>
 </div>
-<section id="results"></section>
+{{!-- <section id="results"></section> --}}
 <script src="{{asset 'js/search.js'}}"></script>
 </html>

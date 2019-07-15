@@ -104,29 +104,34 @@
     margin: 0 auto;
 }
 
-.footer_nav, .footer_subscribe_form {
+.footer_subscribe_form, .footer_recent_post {
     margin: 0px auto;
 }
 
-.footer_nav ul {
+.footer_recent_post ul {
      margin-bottom: .5vw;
+     list-style: none;
+     padding-left: 0;
 }
 
-.footer_nav_title, .footer_subscribe_form_title{
+.footer_subscribe_form_title, .footer_recent_post_title{
     color: white;
     font-size: 2rem;
     line-height: 1;
     margin-top: 2vw;
 }
 
-.footer_nav_item {
-    list-style: none;
+.footer_recent_post {
     font-size: 1.7rem;
-    margin-left: 0;
 }
 
-.footer_nav_item_text {
-    color: red;
+.footer_recent_post_text {
+    color: white;
+    opacity: .8;
+}
+
+.footer_recent_post_text:hover {
+    opacity: 1;
 }
 
 .row {
@@ -256,7 +261,7 @@
     line-height: 1em;
 }
 
-.show_search_button, .search_button {
+.show_search_button {
     display: inline-block;
     position: relative;
     outline: none;
@@ -267,6 +272,39 @@
     padding: 0;
 }
 
-.show_search_button:hover, .search_button:hover {
+.show_search_button:hover {
     opacity: 1;
+}
+
+.result_item {
+    text-decoration: none;
+    border-bottom: .15vw solid #DDDDDD;
+    background: white;
+}
+
+.result_item:hover {
+    background: #1980E1;
+}
+
+.result_item:hover .result_title, .result_item:hover .result_date {
+    color: white;
+}
+
+.results_info, .result_title, .result_date {
+    margin: .5vw 1vw;
+    padding: 0;
+}
+
+.results_info {
+    background: white;
+}
+
+.result_title {
+    color: black;
+}
+
+.result_date {
+    font-size: 1.2rem;
+    text-align: right;
+    color: grey;
 }
