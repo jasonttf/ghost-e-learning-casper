@@ -14,7 +14,7 @@
         {{/if}}
     </div>
     <div class="site-nav-right">
-        {{> search}}
+        <button class="material-icons search-icon search-start show_search_button" id="search">search</button>
         {{#if @labs.subscribers}}
             <a class="subscribe-button" href="#subscribe">Subscribe</a>
         {{else}}
@@ -22,4 +22,9 @@
         {{/if}}
     </div>
 </nav>
+<script type="text/javascript">
+    $("#search").click(function () {
+        window.location.href = window.location.origin+"/search";
+    });
+</script>
 </html>

@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html lang="{{@site.lang}}">
-<script type="text/javascript">
-	function setFooterNav() {
-		var count=0;
-		$(".nav_list").each(function() {
-			if (count>=4) {
-				var navElement=$(this);
-				console.log(navElement);
-				var navElementClassList=navElement.attr("class").split(" ");
-				console.log(navElementClassList);
-				for(var i=0; i<navElementClassList.length; i++) {
-					console.log(navElementClassList[i]);
-					if(navElementClassList[i]!="nav-current") {
-						navElement.removeClass(navElementClassList[i]);
-					}
-				}
-				navElement.addClass("footer_nav_item");
-				console.log(navElement);
-			}
-			count++;
-		});
-	}
-</script>
 <div class="footer_nav">
 	<h3 class="footer_nav_title">Navigation</h3>
-	{{navigation}}
-	<script type="text/javascript">setFooterNav();</script>
+	<ul>
+		{{#foreach @site.navigation}}
+			<li><a id="{{label}}" class="footer_nav_text">{{label}}</a></li>
+		{{/foreach}}
+		<li><a id="Search" class="footer_nav_text">Search</a></li>
+	</ul>
 </div>
+<script type="text/javascript">
+	$(".footer_nav_text").each(function () {
+		var label=$(this);
+		//console.log(label);
+		//console.log(label.attr("id"));
+		var temp;
+		switch (label.attr("id")) {
+			case "Archive": temp=window.location.origin+"/archives"; break;
+			case "Tags": temp=window.location.origin+"/tags"; break;
+			case "Contact": temp=window.location.origin+"/contact"; break;
+			case "Search": temp=window.location.origin+"/search"; break;
+			default: temp=window.location.origin; break;
+		} 
+		label.attr("href", temp);
+	});
+</script>
 </html>

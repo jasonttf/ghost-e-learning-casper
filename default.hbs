@@ -29,7 +29,7 @@
         var _ApiKey = '2b771b3ff6206ee57d7bfc8738';
         var ghosthunter_key='5927beca44f0c1d4fc3f076a2f';
     </script>
-    <link href="//cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css" rel="stylesheet" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css" rel="stylesheet"/>
 
     {{!-- This tag outputs SEO meta+structured data and other important settings --}}
     {{ghost_head}}
@@ -37,8 +37,9 @@
 <body class="{{body_class}}">
 
     <div class="site-wrapper">
-        <section id="results"></section>
+        
         {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+        <script type="text/javascript" src="{{asset 'js/windowSize.js'}}"></script>
         {{{body}}}
 
         {{!-- The footer at the very bottom of the screen --}}
@@ -56,7 +57,7 @@
             {{/if}}
             <h1 class="subscribe-overlay-title">Subscribe to {{@site.title}}</h1>
             <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
-            {{subscribe_form placeholder="youremail@example.com"}}
+            {{subscribe_form placeholder="Your email address"}}
         </div>
     </div>
     {{/if}}
@@ -81,23 +82,20 @@
     </script>
     <script type="text/javascript" src="{{asset 'built/jquery.fitvids.js'}}"></script>
 
-    {{#if pagination.pages}}
-    <script src="{{asset 'built/infinitescroll.js'}}"></script>
-    {{/if}}
-
     {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
     {{{block "scripts"}}}
 
     {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
 
     <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>  
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-php.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-css.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-html.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-js.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-python.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-java.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-php.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-css.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-markup.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-javascript.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-python.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-java.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-bash.min.js"></script>
     <div id="back2Top" class="right-bar"><a href=" ">
         <i class="fa fa-angle-double-up" style="color: #5599FF; font-size: 50px;"></i></a>
     </div>

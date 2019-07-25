@@ -1,6 +1,6 @@
 {
-    "name": "casper",
-    "description": "The default personal blogging theme for Ghost. Beautiful, minimal and responsive.",
+    "name": "online theme",
+    "description": "with all functions",
     "demo": "https://demo.ghost.io",
     "version": "2.10.2",
     "engines": {
@@ -61,7 +61,7 @@
         "pump": "3.0.0"
     },
     "config": {
-        "posts_per_page": 25,
+        "posts_per_page": 5,
         "image_sizes": {
             "xxs": {
                 "width": 30

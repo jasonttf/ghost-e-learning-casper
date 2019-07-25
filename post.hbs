@@ -7,12 +7,12 @@ into the {body} of the default.hbs template --}}
 
 <script type="text/javascript">
     var tagsExist = true;
+    var navExist = false;
     function content_nav() {
         var contentsTitle = "Content Nav";
         var ToC = "<h3>"+contentsTitle+"</h3>";
         ToC += "<nav role='navigation'><ul>";
         var first = true;
-        var navExist = false;
         $("h1, h2, h3").each(function() {
             var el = $(this);
             var title = el.text();
@@ -119,7 +119,34 @@ into the {body} of the default.hbs template --}}
                 <div class="post-content">
                     {{content}}
                 </div>
-                <script type="text/javascript">content_nav();</script>
+                <script type="text/javascript">
+                    windowSize();
+                    content_nav();
+                    if (windowWidth > 1200) {
+                        if(tagsExist || navExist) {
+                            $("#content_sec").addClass("parent");
+                        }
+                        $("#side_bar").show();
+                    }
+                    else {
+                        document.getElementById("content_sec").classList.remove("parent");
+                        $("#side_bar").hide();
+                    }
+                    $(window).on("resize", function () {
+                        windowSize();
+                        console.log(windowWidth);
+                        if (windowWidth > 1200) {
+                            if(tagsExist || navExist) {
+                                $("#content_sec").addClass("parent");
+                            }
+                            $("#side_bar").show();
+                        }
+                        else {
+                            document.getElementById("content_sec").classList.remove("parent");
+                            $("#side_bar").hide();
+                        }
+                    });
+                </script>
             </section>
 
             <footer class="post-full-footer">
@@ -211,7 +238,7 @@ into the {body} of the default.hbs template --}}
 
     var disqus_config = function () {
         this.page.url = '{{@blog.url}}{{url}}'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'ghost-{{id}}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.identifier = 'ghost-{{comment_id}}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE

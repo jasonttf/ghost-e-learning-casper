@@ -28,11 +28,13 @@ into the {body} of the default.hbs template --}}
             {{#foreach posts}}
 
                 {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-                {{> "post-card"}}
+                {{> post-card}}
 
             {{/foreach}}
         </div>
-
     </div>
 </main>
+{{#if pagination.pages}}
+    {{pagination}}
+{{/if}}
 </html>
