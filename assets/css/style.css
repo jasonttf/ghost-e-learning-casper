@@ -256,21 +256,18 @@
     padding: 4px 10px;
     margin: 0px;
     line-height: 1em;
-    width: 95%;
     display: flex inline-block;
 }
 
 .remove_field {
     margin: 0;
-    margin-right: 5px;
     background: none;
     border: none;
     outline: none;
     color: black;
     opacity: .8;
     float: right;
-    position: fixed;
-    display: flex inline-block;
+    display: inline-block;
 }
 
 .remove_field:hover {
@@ -335,7 +332,7 @@
     border-radius: .5rem;
     border: 1px solid #217EBC;
     width: 100%;
-    display: flex block;
+    display: inline-block;
 }
 
 .footer_subscribe_button {
@@ -345,7 +342,7 @@
     color: white;
     border: 1px solid #25A85D;
     border-radius: .5rem;
-    display: flex block;
+    display: inline-block;
 }
 
 .footer_subscribe_button:hover {
@@ -359,5 +356,11 @@
 }
 
 .page-number, .newer-posts, .older-posts {
-    font-size: 1.4vw;
+    font-size: 20px;
+}
+
+.tags-list {
+    columns: 3;
+    -webkit-columns: 3;
+    -moz-columns: 3;
 }

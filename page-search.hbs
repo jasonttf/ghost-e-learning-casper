@@ -19,6 +19,7 @@
 						<button class="remove_field">&#10005;</button>
 					</div>
 					<section id="results"></section>
+					
 				</section>
 			</article>
 		</div>
@@ -30,5 +31,21 @@
 		$("#search-field").val("");
 		$("#results").empty();
 	})
+	var remove_field_width=$(".remove_field").width();
+	var search_form_with=$(".search_form").width();
+	$(".search_field").width(search_form_with-remove_field_width-40);
+	// console.log(remove_field_width);
+	// console.log(search_form_with);
+	// console.log($(".search_field").width());
+	$(window).on("resize", function () {
+		remove_field_width=$(".remove_field").width();
+		search_form_with=$(".search_form").width();
+		$(".search_field").width(search_form_with-remove_field_width-40);
+		// console.log(remove_field_width);
+		// console.log(search_form_with);
+		// console.log($(".search_field").width());
+	});
+
+
 </script>
 </html>

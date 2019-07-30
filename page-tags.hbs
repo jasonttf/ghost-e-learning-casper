@@ -30,7 +30,7 @@ into the {body} of the default.hbs template --}}
 <script>
     window.onload= function(){
         $.ajax({url:'/ghost/api/v2/content/tags/?key='+_ApiKey+'&include=count.posts',success:function(re){
-            console.log(re);
+            //console.log(re);
             re.tags.forEach(function(item){
                 $('.tags-list').append($('<li class="tags-item"><a href="' + item.url + '"' + 'title="' + item.name + '">' + item.name + '<span>  '+'[ '+item.count.posts+' ]'+'</span></a></li>'));
             })
