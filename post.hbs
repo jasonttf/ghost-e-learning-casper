@@ -134,7 +134,7 @@ into the {body} of the default.hbs template --}}
                     }
                     $(window).on("resize", function () {
                         windowSize();
-                        console.log(windowWidth);
+                        //console.log(windowWidth);
                         if (windowWidth > 1200) {
                             if(tagsExist || navExist) {
                                 $("#content_sec").addClass("parent");
@@ -160,20 +160,50 @@ into the {body} of the default.hbs template --}}
                     {{> "byline-multiple"}}
                 {{else}}
                     {{> "byline-single"}}
-                {{/has}}
+                {{/has}}      
+            </footer> 
 
-            </footer>
-
-            {{!--
-            <section class="post-full-comments">
-                If you want to embed comments, this is a good place to do it!
+            <section>
+                <div id="show_comment"><a class="comments"><i id="coment_pic" class="fa fa-plus-square "> COMMENTS </i></a></div>
             </section>
-            --}}
-
+            <div id="disqus_thread" class="disqus_contain"></div>
         </article>
-
-    </div>
+    </div> 
 </main>
+
+{{!-- The Click and then show the comment funtcion--}}
+
+<script>
+    $("#show_comment").click(function() {
+        if($("#disqus_thread").is(":visible")) {
+            $("#disqus_thread").hide();
+            $("#coment_pic").removeClass("fa-window-close").addClass("fa-plus-square");
+        }
+        else {
+            $("#disqus_thread").show();
+            $("#coment_pic").removeClass("fa-plus-square").addClass("fa-window-close");
+            
+        }
+    });
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+    var disqus_config = function () {
+        this.page.url = '{{@blog.url}}{{url}}'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'ghost-{{comment_id}}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://e-learning-6.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="_">comments powered by Disqus.</a ></noscript>
+
+
 
 {{!-- Links to Previous/Next posts --}}
 <aside class="read-next outer">
@@ -229,26 +259,6 @@ into the {body} of the default.hbs template --}}
 
 {{!-- Floating header which appears on-scroll, included from includes/floating-header.hbs --}}
 {{> floating-header}}
-<div id="disqus_thread" class="disqus_contain"></div>
-<script>
-
-/**
-* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-
-    var disqus_config = function () {
-        this.page.url = '{{@blog.url}}{{url}}'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'ghost-{{comment_id}}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-
-    (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        s.src = 'https://localhost-2368-1.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href=" ">comments powered by Disqus.</a ></noscript>
 
 {{/post}}
 
