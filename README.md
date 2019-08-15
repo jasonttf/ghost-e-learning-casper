@@ -2,8 +2,7 @@
 Go to EC2 dashboard and select launch instance.
 Choose Ubuntu Server 18.04 LTS (HVM) as the server.
 Left other settigs as default and jump to security group session.
-Setup the security group lile this:
->photo
+Refer to "security group settings.png" to setup security group.
 Review the settings and launch the instance.
 Go to elastic IPs and select allocate newaddress.
 Associate the new IP to the instance you just launch.
@@ -15,7 +14,7 @@ There are some points should be taken care of when installing the ghost:
 # Set up Ghost Theme
 Visit the website of ghost set before and create your account.
 ## Import the theme
-Download the .zip file of ghost theme from GitHub. Upload the theme file of **'Design'** the of **Admin Page **:
+Download the .zip file of ghost theme from GitHub. Upload the theme file ti **'Design'** the of **Admin Page ** just like in "upload theme.jpg":
 Active the theme.
 ## The Setting of Integrations
 Add the custom integration, and copy the **'Content API Key'**. Change the **_ApiKey** and **ghosthunter_key** in the '>ghost>content>themes>*your theme name*>default.hbs':
@@ -28,4 +27,4 @@ Add the custom integration, and copy the **'Content API Key'**. Change the **_Ap
 The **_ApiKey** is using for tag and archive page and **ghosthunter_key** is using for searching function.
 ## The Page Design
 Create the **Search, Archive, Tags and Contact me **Page without any contents. Remember to set the **URL**, you can set the URL like 'you website/archives'. 
-Design the Navigation in the 'Design' as follow:
+Design the Navigation in the 'Design' as in "navbar.jpg".
