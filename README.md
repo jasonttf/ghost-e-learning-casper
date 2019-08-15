@@ -1,11 +1,11 @@
 # Setting up AWS EC2 server
-Go to EC2 dashboard and select launch instance.
-Choose Ubuntu Server 18.04 LTS (HVM) as the server.
-Left other settigs as default and jump to security group session.
-Refer to "security group settings.png" to setup security group.
-Review the settings and launch the instance.
-Go to elastic IPs and select allocate newaddress.
-Associate the new IP to the instance you just launch.
+1. Go to EC2 dashboard and select launch instance.
+2. Choose Ubuntu Server 18.04 LTS (HVM) as the server.
+3. Leave other settigs as default and jump to security group session.
+4. Refer to "security group settings.png" to setup security group.
+5. Review the settings and launch the instance.
+6. Go to elastic IPs and select allocate newaddress.
+7. Associate the new IP to the instance you just launch.
 # Install Ghost on Ubuntu
 The official documents of Ghost show the details about how to install the ghost on the Ubuntu: https://ghost.org/docs/install/ubuntu/
 There are some points should be taken care of when installing the ghost:
@@ -14,8 +14,7 @@ There are some points should be taken care of when installing the ghost:
 # Set up Ghost Theme
 Visit the website of ghost set before and create your account.
 ## Import the theme
-Download the .zip file of ghost theme from GitHub. Upload the theme file ti **'Design'** the of **Admin Page ** just like in "upload theme.jpg":
-Active the theme.
+Download the .zip file of ghost theme from GitHub. Upload the theme file ti **'Design'** the of **Admin Page ** just like in "upload theme.jpg" and active the theme.
 ## The Setting of Integrations
 Add the custom integration, and copy the **'Content API Key'**. Change the **_ApiKey** and **ghosthunter_key** in the '>ghost>content>themes>*your theme name*>default.hbs':
 ```html
