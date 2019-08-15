@@ -1,66 +1,31 @@
-# Casper
-
-The default theme for [Ghost](http://github.com/tryghost/ghost/). This is the latest development version of Casper. If you're just looking to download the latest release, head over to the [releases](https://github.com/TryGhost/Casper/releases) page.
-
-&nbsp;
-
-![screenshot-desktop](https://user-images.githubusercontent.com/120485/27221326-1e31d326-5280-11e7-866d-82d550a7683b.jpg)
-
-&nbsp;
-
-# First time using a Ghost theme?
-
-Ghost uses a simple templating language called [Handlebars](http://handlebarsjs.com/) for its themes.
-
-We've documented our default theme pretty heavily so that it should be fairly easy to work out what's going on just by reading the code and the comments. Once you feel comfortable with how everything works, we also have full [theme API documentation](https://themes.ghost.org) which explains every possible Handlebars helper and template.
-
-**The main files are:**
-
-- `default.hbs` - The main template file
-- `index.hbs` - Used for the home page
-- `post.hbs` - Used for individual posts
-- `page.hbs` - Used for individual pages
-- `tag.hbs` - Used for tag archives
-- `author.hbs` - Used for author archives
-
-One really neat trick is that you can also create custom one-off templates just by adding the slug of a page to a template file. For example:
-
-- `page-about.hbs` - Custom template for the `/about/` page
-- `tag-news.hbs` - Custom template for `/tag/news/` archive
-- `author-ali.hbs` - Custom template for `/author/ali/` archive
-
-
-# Development
-
-Casper styles are compiled using Gulp/PostCSS to polyfill future CSS spec. You'll need [Node](https://nodejs.org/), [Yarn](https://yarnpkg.com/) and [Gulp](https://gulpjs.com) installed globally. After that, from the theme's root directory:
-
-```bash
-$ yarn install
-$ yarn dev
+# Setting up AWS EC2 server
+Go to EC2 dashboard and select launch instance.
+Choose Ubuntu Server 18.04 LTS (HVM) as the server.
+Left other settigs as default and jump to security group session.
+Setup the security group lile this:
+>photo
+Review the settings and launch the instance.
+Go to elastic IPs and select allocate newaddress.
+Associate the new IP to the instance you just launch.
+# Install Ghost on Ubuntu
+The official documents of Ghost show the details about how to install the ghost on the Ubuntu: https://ghost.org/docs/install/ubuntu/
+There are some points should be taken care of when installing the ghost:
+- Change the user of** Mysql** and set your own password.
+- Sometimes the installing of **NGINX **is unsuccessfully, and it needs to be installed again. Besides, if there are still some errors about the NGINX which  show when execute **'ghost install'**, you can modify the ***config.production.json*** in the ghost:`"host": "127.0.0.1"` to `"host": "0.0.0.0"`. But this means the fail of **reverse proxy** so that the port number '2368' have to be added when visiting the website.
+# Set up Ghost Theme
+Visit the website of ghost set before and create your account.
+## Import the theme
+Download the .zip file of ghost theme from GitHub. Upload the theme file of **'Design'** the of **Admin Page **:
+Active the theme.
+## The Setting of Integrations
+Add the custom integration, and copy the **'Content API Key'**. Change the **_ApiKey** and **ghosthunter_key** in the '>ghost>content>themes>*your theme name*>default.hbs':
+```html
+<script type="text/javascript">
+        var _ApiKey = '6e1955a96fcc6ee22faf4eaaf7';
+        var ghosthunter_key='6e1955a96fcc6ee22faf4eaaf7';
+   </script>
 ```
-
-Now you can edit `/assets/css/` files, which will be compiled to `/assets/built/` automatically.
-
-The `zip` Gulp task packages the theme files into `dist/<theme-name>.zip`, which you can then upload to your site.
-
-```bash
-$ yarn zip
-```
-
-# PostCSS Features Used
-
-- Autoprefixer - Don't worry about writing browser prefixes of any kind, it's all done automatically with support for the latest 2 major versions of every browser.
-- Variables - Simple pure CSS variables
-- [Color Function](https://github.com/postcss/postcss-color-function)
-
-
-# SVG Icons
-
-Casper uses inline SVG icons, included via Handlebars partials. You can find all icons inside `/partials/icons`. To use an icon just include the name of the relevant file, eg. To include the SVG icon in `/partials/icons/rss.hbs` - use `{{> "icons/rss"}}`.
-
-You can add your own SVG icons in the same manner.
-
-
-# Copyright & License
-
-Copyright (c) 2013-2019 Ghost Foundation - Released under the [MIT license](LICENSE).
+The **_ApiKey** is using for tag and archive page and **ghosthunter_key** is using for searching function.
+## The Page Design
+Create the **Search, Archive, Tags and Contact me **Page without any contents. Remember to set the **URL**, you can set the URL like 'you website/archives'. 
+Design the Navigation in the 'Design' as follow:
